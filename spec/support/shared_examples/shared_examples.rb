@@ -1,7 +1,34 @@
 shared_examples "require_sign_in" do 
+  before do
+    end_user_session
+    action
+  end
+  
   it "redirects to the root_path" do
     end_user_session
     action
     response.should redirect_to root_path
   end
+
+  it "displays a flash error" do 
+    action
+    flash[:error].should be_present
+  end
+end 
+
+shared_examples "require_admin" do
+  let(:user) { Fabricate(:user) }
+    before do 
+      current_user(user)
+      action
+    end  
+  it "redirects to the root path" do 
+
+    response.should redirect_to root_path
+  end
+
+  it "displays a flash error" do 
+    flash[:error].should be_present
+  end
+
 end

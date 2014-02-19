@@ -58,5 +58,5 @@ Pushbc::Application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  resources :admins, only: [:new]
+  resources :admins, only: [:new, :create]
 end
