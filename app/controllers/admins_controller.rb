@@ -18,6 +18,8 @@ class AdminsController < ApplicationController
 
   end
 
+  private
+
   def admin_params
     params.require(:admin).permit(:username, :password, :email).merge(type: "Admin")
   end
