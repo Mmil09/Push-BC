@@ -10,6 +10,12 @@ describe User do
   it { should validate_uniqueness_of(:email) }
   it { should have_many(:bootcamps).through(:user_bootcamps) }
 
+  let(:user) { Fabricate(:user) }
+
+  it "creates a slug after create" do 
+    expect(user.slug).to be_present
+  end
+
 
 end
 

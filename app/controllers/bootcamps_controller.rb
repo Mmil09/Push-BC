@@ -1,20 +1,22 @@
 class BootcampsController < ApplicationController
-  before_action :logged_in?, :is_admin?
+  before_action :logged_in?, :is_admin?, except: [:show]
 
   def new
     @bootcamp = Bootcamp.new
   end
 
   def create
-    binding.pry
     @bootcamp = Bootcamp.new(bootcamp_params)
     if @bootcamp.save
-      binding.pry
       flash[:success] = "Bootcamp successfully created!"
-      redirect_to(bootcamp_path(@bootcamp.id))
+      redirect_to(bootcamp_path(@bootcamp))
     else
       render :new
     end
+  end
+
+  def show
+    @bootcamp = Bootcamp.find_by_slug(params[:id])
   end
 
   private

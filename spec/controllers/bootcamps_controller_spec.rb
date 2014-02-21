@@ -40,7 +40,7 @@ describe BootcampsController do
       end
 
       it "redirects to the show bootcamp path" do 
-        expect(response).to redirect_to(bootcamp_path(assigns(:bootcamp).id))
+        expect(response).to redirect_to(bootcamp_path(assigns(:bootcamp)))
       end
 
       it "creates a bootcamp variable" do
@@ -54,6 +54,39 @@ describe BootcampsController do
       it "creates a flash success message" do 
         expect(flash[:success]).to be_present
       end
+
+    end
+
+    context "user is not logged in" do 
+      it_behaves_like "require_sign_in" do 
+        let(:action) { get :new }
+      end
+    end
+
+    context "user not an admin" do 
+      it_behaves_like "require_admin" do 
+        let(:action) { post :create, bootcamp: { name: "New bootcamp", description: "description of bootcamp", cost: "1000" } }
+      end
+    end
+  end
+
+  describe "GET show" do 
+    context "bootcamp exists" do 
+      let(:bootcamp) { Fabricate(:bootcamp) }
+      before { get :show, id: bootcamp.slug }
+
+      it "renders the show template" do 
+        expect(response).to render_template(:show)
+      end
+
+      it "contains a bootcamp instance" do 
+        expect(assigns(:bootcamp)).to be_present
+      end
+
+      it "creates a bootcamp instance that is based on the id passed in" do 
+        expect(assigns(:bootcamp)).to eq(Bootcamp.first)
+      end
+
     end
   end
 end

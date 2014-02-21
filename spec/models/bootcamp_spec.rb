@@ -11,4 +11,10 @@ describe Bootcamp do
   it { should have_many(:users).through(:user_bootcamps) }
   it { should have_many(:course_materials).through(:bootcamp_materials) }
 
+  let(:bootcamp) { Fabricate(:bootcamp) }
+
+  it "should have a slug after create" do
+    expect(bootcamp.slug).to be_present
+  end 
+
 end
