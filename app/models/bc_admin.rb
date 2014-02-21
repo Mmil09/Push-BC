@@ -1,0 +1,3 @@
+class BCAdmin < User
+
+end

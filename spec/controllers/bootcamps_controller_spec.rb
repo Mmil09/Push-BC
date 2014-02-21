@@ -89,4 +89,48 @@ describe BootcampsController do
 
     end
   end
+
+  describe "GET edit" do 
+    context "user is an admin" do 
+      let(:bob) { Fabricate(:user, type: "Admin") }
+      let(:bootcamp) { Fabricate(:bootcamp) }
+      before do 
+        current_user(bob)
+        get :edit, id: bootcamp.slug 
+      end
+
+      it "renders the edit view" do 
+        expect(response).to render_template(:edit)
+      end
+      it "sets a bootcamp instance" do 
+        expect(assigns(:bootcamp)).to be_present
+      end
+      it "sets the bootcamp instance to the right record" do 
+        expect(assigns(:bootcamp)).to eq(bootcamp)
+      end
+    end
+
+    context "user is a bootcamp administrator for bootcamp" do 
+      let(:bootcamp) { Fabricate(:bootcamp) }
+      let(:bob) { Fabricate(:user, type: "BCAdmin", bootcamp_ids: bootcamp.id) }
+      
+      before do 
+        current_user(bob)
+        get :edit, id: bootcamp.slug 
+      end
+
+      it "renders the edit view" do 
+        expect(response).to render_template(:edit)
+      end
+
+      it "sets a bootcamp instance" do 
+        expect(assigns(:bootcamp)).to be_present
+      end
+
+      it "sets the bootcamp instance to the right record" do 
+        expect(assigns(:bootcamp)).to eq(bootcamp)
+      end
+
+    end
+  end
 end

@@ -6,5 +6,5 @@ Pushbc::Application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   resources :admins, only: [:new, :create]
-  resources :bootcamps, only: [:new, :create, :show]
+  resources :bootcamps, only: [:new, :create, :show, :edit]
 end

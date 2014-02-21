@@ -8,18 +8,34 @@ class ApplicationController < ActionController::Base
   end
 
   def is_admin?
-    user = User.find(current_user)
-    if user.type != "Admin"
-      flash[:error] = "You are not authorized to go there."
-      redirect_to(root_path)
+    user = return_current_user
+    if !user.is_a?(BCAdmin)
+      redirect_unauthorized_user
+    end
+  end
+
+  def is_bc_admin?
+    user = return_current_user
+    if !user.kind_of?(BCAdmin)
+      redirect_unauthorized_user
     end
   end
 
   def logged_in?
     if current_user == nil
-      flash[:error] = "You must be logged in to do that."
-      redirect_to(root_path)
+      redirect_unauthorized_user
     end
+  end
+
+  private
+
+  def redirect_unauthorized_user
+    flash[:error] = "You are not authorized to go there."
+    redirect_to(root_path)
+  end
+
+  def return_current_user
+    User.find(current_user)
   end
 
 end

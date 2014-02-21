@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   extend FriendlyId
+  include Sluggable
+
   friendly_id :username, use: [:slugged, :history]
 
   validates :username, :email, presence: true, uniqueness: true, case_sensitive: false
