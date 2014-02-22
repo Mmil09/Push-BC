@@ -3,22 +3,22 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  private
+
   def current_user
     session[:user] ||= nil
   end
 
   def is_admin?
     user = return_current_user
-    if !user.is_a?(BCAdmin)
+    if !user.is_a?(Admin)
       redirect_unauthorized_user
     end
   end
 
-  def is_bc_admin?
+  def is_bc_admin?(bootcamp)
     user = return_current_user
-    if !user.kind_of?(BCAdmin)
-      redirect_unauthorized_user
-    end
+    is_admin? if !user.is_bc_admin?(bootcamp.id)
   end
 
   def logged_in?
@@ -26,8 +26,6 @@ class ApplicationController < ActionController::Base
       redirect_unauthorized_user
     end
   end
-
-  private
 
   def redirect_unauthorized_user
     flash[:error] = "You are not authorized to go there."

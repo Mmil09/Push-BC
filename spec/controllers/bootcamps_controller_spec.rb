@@ -132,5 +132,52 @@ describe BootcampsController do
       end
 
     end
+
+    context "user bootcamp admin but not for given bootcamp" do 
+      let(:bootcamp) { Fabricate(:bootcamp) }
+      let(:bob) { Fabricate(:user, type: "BCAdmin") }
+      
+      before do 
+        current_user(bob)
+        get :edit, id: bootcamp.slug 
+      end
+
+      it "redirects to the root path" do 
+        expect(response).to redirect_to(root_path)
+      end
+
+      it "expect flash[:error] to be present" do 
+        expect(flash[:error]).to be_present
+      end
+    end
+
+    context "user not BCAdmin" do 
+      let(:bootcamp) { Fabricate(:bootcamp) }
+      let(:bob) { Fabricate(:user) }
+      
+      before do 
+        current_user(bob)
+        get :edit, id: bootcamp.slug 
+      end
+
+      it "redirects to the root path" do 
+        expect(response).to redirect_to(root_path)
+      end
+
+      it "expect flash[:error] to be present" do 
+        expect(flash[:error]).to be_present
+      end
+    end
+
+    context "user not logged in" do 
+      let(:bootcamp) { Fabricate(:bootcamp) }
+      
+      it_behaves_like "require_sign_in" do 
+        let(:action) { get :edit, id: bootcamp.slug }
+      end
+
+    end
+
+
   end
 end
