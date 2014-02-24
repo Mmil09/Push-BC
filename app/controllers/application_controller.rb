@@ -34,6 +34,14 @@ class ApplicationController < ActionController::Base
     redirect_unauthorized_user if !admin?
   end
 
+  def same_user?(id)
+    true if current_user == id
+  end
+
+  def require_same_user(id)
+    require_admin if !same_user?(id)
+  end
+
   def is_bc_admin?(bootcamp)
     user = return_current_user
     require_admin if !user.is_bc_admin?(bootcamp.id)
@@ -47,5 +55,7 @@ class ApplicationController < ActionController::Base
   def return_current_user
     User.find(current_user)
   end
+
+
 
 end

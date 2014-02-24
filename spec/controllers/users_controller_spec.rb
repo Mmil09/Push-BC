@@ -72,4 +72,76 @@ describe UsersController do
 
   end
 
+  describe "get edit" do
+    
+    context "user edits themself" do 
+      let(:bob) { Fabricate(:user) } 
+      before do
+        current_user(bob)
+        get :edit, id: bob.slug 
+      end
+
+      it "renders the edit template" do 
+        expect(response).to render_template(:edit)
+      end
+
+      it "has user instance present" do 
+        expect(assigns(:user)).to be_present
+      end
+
+      it "sets the user instance to the user" do 
+        expect(assigns(:user)).to eq(bob)
+      end
+
+    end
+
+    context "user tries to edit another user" do 
+      let(:bob) { Fabricate(:user) } 
+      let(:bill) { Fabricate(:user) }
+      before do
+        current_user(bob)
+        get :edit, id: bill.slug 
+      end
+
+      it "redirects to the root path" do 
+        expect(response).to redirect_to(root_path)
+      end
+
+      it "has a flash message present" do 
+        expect(flash[:error]).to be_present
+      end
+    end
+
+    context "user is an admin and edits another user" do 
+      let(:bob) { Fabricate(:user, type: "Admin") } 
+      let(:bill) { Fabricate(:user) }
+      before do
+        current_user(bob)
+        get :edit, id: bill.slug 
+      end
+
+      it "renders the edit template" do 
+        expect(response).to render_template(:edit)
+      end
+
+      it "has user instance present" do 
+        expect(assigns(:user)).to be_present
+      end
+
+      it "sets the user instance to the user" do 
+        expect(assigns(:user)).to eq(bill)
+      end
+
+    end
+
+    context "user not logged in" do
+      let(:bob) { Fabricate(:user) } 
+      it_behaves_like("require_sign_in") do
+        let(:action) { get :edit, id: bob.slug }
+      end
+    end
+
+
+  end
+
 end

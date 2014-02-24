@@ -5,7 +5,7 @@ Pushbc::Application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :edit]
   resources :admins, only: [:new, :create]
   resources :bootcamps, only: [:new, :create, :show, :edit]
   resources :bc_admins, only: [:new, :create]

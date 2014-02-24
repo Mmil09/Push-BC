@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_log_out, only: [:new, :create]
+  before_action :set_user, :require_log_in, only: [:edit]
+  before_action only: [:edit] { require_same_user(@user.id) }
   
   def new
     @user = User.new
@@ -17,10 +19,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:username, :password, :email)
+  end
+
+  def set_user
+    @user = User.find_by_slug(params[:id])
   end
 
 end
