@@ -11,6 +11,5 @@ class Bootcamp <ActiveRecord::Base
   has_many :bootcamp_materials
   has_many :course_materials, through: :bootcamp_materials
 
-  
 
 end

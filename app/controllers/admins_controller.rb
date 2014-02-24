@@ -1,6 +1,6 @@
 class AdminsController < ApplicationController
 
-  before_action :logged_in?, :is_admin?
+  before_action :require_log_in, :require_admin
 
   def new
     @admin = Admin.new

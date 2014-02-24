@@ -77,7 +77,7 @@ describe AdminsController do
       end
 
       it "does not create a new admin" do 
-        expect(Admin.count).to be_present
+        expect(Admin.count).to eq(1)
       end
     end
 

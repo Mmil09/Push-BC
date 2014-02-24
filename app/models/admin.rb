@@ -1,3 +1,3 @@
-class Admin < BCAdmin
+class Admin < User
 
 end

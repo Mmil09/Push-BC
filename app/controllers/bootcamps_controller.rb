@@ -1,8 +1,8 @@
 class BootcampsController < ApplicationController
   before_action :set_bootcamp, only: [:edit, :show]
-  before_action :logged_in?, except: [:show]
+  before_action :require_log_in, except: [:show]
   before_action only: [:edit] { is_bc_admin?(@bootcamp) } 
-  before_action :is_admin?, except: [:edit, :show]
+  before_action :require_admin, except: [:edit, :show]
   
   def new
     @bootcamp = Bootcamp.new

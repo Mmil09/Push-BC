@@ -1,0 +1,2 @@
+module BcAdminsHelper
+end

@@ -9,22 +9,34 @@ class ApplicationController < ActionController::Base
     session[:user] ||= nil
   end
 
-  def is_admin?
-    user = return_current_user
-    if !user.is_a?(Admin)
+  def logged_in?
+    !!current_user
+  end
+
+  def require_log_in
+    if !logged_in?
       redirect_unauthorized_user
     end
+  end
+
+  def require_log_out
+    if logged_in?
+      redirect_unauthorized_user
+    end
+  end
+
+  def admin?
+    user = return_current_user
+    true if user.is_a?(Admin)
+  end
+
+  def require_admin
+    redirect_unauthorized_user if !admin?
   end
 
   def is_bc_admin?(bootcamp)
     user = return_current_user
-    is_admin? if !user.is_bc_admin?(bootcamp.id)
-  end
-
-  def logged_in?
-    if current_user == nil
-      redirect_unauthorized_user
-    end
+    require_admin if !user.is_bc_admin?(bootcamp.id)
   end
 
   def redirect_unauthorized_user

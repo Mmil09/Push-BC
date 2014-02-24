@@ -3,10 +3,20 @@ require 'spec_helper'
 describe SessionsController do 
 
   describe "GET new" do
-    it "renders the new template" do
-      get :new
-      expect(response).to render_template(:new)
+    context "user not logged in" do 
+      it "renders the new template" do
+        get :new
+        expect(response).to render_template(:new)
+      end
     end
+
+    context "user logged in" do 
+      it_behaves_like("require_log_out") do 
+        let(:action) { get :new } 
+      end
+
+    end
+
   end
 
   describe "post create" do 
@@ -59,25 +69,39 @@ describe SessionsController do
 
     end
 
+    context "user signed in" do 
+      it_behaves_like("require_log_out") do 
+        let(:action) { post :create } 
+      end
+
+    end
     
   end
 
   describe "get destroy" do 
-    before do 
-      current_user
-      delete :destroy
+    context "user logged in" do 
+      before do 
+        current_user
+        delete :destroy
+      end
+
+      it "redirects to the root path" do 
+        expect(response).to redirect_to(root_path)
+      end
+
+      it "contains a flash success message" do 
+        expect(flash[:success]).to be_present
+      end
+
+      it "sets session[:user] to nil" do 
+        expect(session[:user]).to be_nil
+      end
     end
 
-    it "redirects to the root path" do 
-      expect(response).to redirect_to(root_path)
-    end
-
-    it "contains a flash success message" do 
-      expect(flash[:success]).to be_present
-    end
-
-    it "sets session[:user] to nil" do 
-      expect(session[:user]).to be_nil
+    context "user not logged in" do 
+      it_behaves_like("require_sign_in") do 
+        let(:action) { delete :destroy }
+      end
     end
 
   end
