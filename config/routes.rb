@@ -7,6 +7,6 @@ Pushbc::Application.routes.draw do
 
   resources :users, only: [:new, :create, :edit, :update, :show]
   resources :admins, only: [:new, :create]
-  resources :bootcamps, only: [:new, :create, :show, :edit]
+  resources :bootcamps, only: [:new, :create, :show, :edit, :update]
   resources :bc_admins, only: [:new, :create]
 end

@@ -1,8 +1,8 @@
 class BootcampsController < ApplicationController
-  before_action :set_bootcamp, only: [:edit, :show]
+  before_action :set_bootcamp, only: [:edit, :show, :update]
   before_action :require_log_in, except: [:show]
-  before_action only: [:edit] { is_bc_admin?(@bootcamp) } 
-  before_action :require_admin, except: [:edit, :show]
+  before_action only: [:edit, :update] { is_bc_admin?(@bootcamp) } 
+  before_action :require_admin, except: [:edit, :show, :update]
   
   def new
     @bootcamp = Bootcamp.new
@@ -23,6 +23,14 @@ class BootcampsController < ApplicationController
   end
 
   def edit
+
+  end
+
+  def update
+    if @bootcamp.update(bootcamp_params)
+      flash[:success] = "You have updated the bootcamp"
+      redirect_to(bootcamp_path(@bootcamp))
+    end
 
   end
 
