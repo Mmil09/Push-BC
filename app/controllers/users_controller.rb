@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_action :require_log_out, only: [:new, :create]
-  before_action :set_user, :require_log_in, only: [:edit]
-  before_action only: [:edit] { require_same_user(@user.id) }
+  before_action :set_user, only: [:edit, :update, :show]
+  before_action :require_log_in, only: [:edit, :update]
+  before_action only: [:edit, :update] { require_same_user(@user.id) }
   
   def new
     @user = User.new
@@ -21,6 +22,19 @@ class UsersController < ApplicationController
 
   def edit
     
+  end
+
+  def update
+    if @user.update(user_params)
+      flash[:success] = "Your account has been updated."
+      redirect_to(user_path(@user))
+    else
+      flash[:error] = "There was an error in your input"
+      render(:edit)
+    end
+  end
+
+  def show
   end
 
   private
