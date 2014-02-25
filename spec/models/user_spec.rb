@@ -10,6 +10,7 @@ describe User do
   it { should validate_uniqueness_of(:email) }
   it { should have_many(:bootcamps).through(:user_bootcamps) }
   it { should validate_confirmation_of(:password) }
+  it { should have_many(:reviews) }
 
   let(:user) { Fabricate(:user) }
 

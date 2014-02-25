@@ -10,6 +10,7 @@ describe Bootcamp do
   it { should validate_numericality_of(:cost) }
   it { should have_many(:users).through(:user_bootcamps) }
   it { should have_many(:course_materials).through(:bootcamp_materials) }
+  it { should have_many(:reviews) }
 
   let(:bootcamp) { Fabricate(:bootcamp) }
 
