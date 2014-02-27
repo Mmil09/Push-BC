@@ -1,4 +1,5 @@
 class BootcampsController < ApplicationController
+  respond_to :html, :json
   before_action :set_bootcamp, only: [:edit, :show, :update]
   before_action :require_log_in, except: [:show]
   before_action only: [:edit, :update] { require_bc_admin(@bootcamp) } 
@@ -19,7 +20,7 @@ class BootcampsController < ApplicationController
   end
 
   def show
-    
+    respond_with(@bootcamp)
   end
 
   def edit

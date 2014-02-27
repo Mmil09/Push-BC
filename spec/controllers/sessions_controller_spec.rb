@@ -82,7 +82,7 @@ describe SessionsController do
     context "user logged in" do 
       before do 
         current_user
-        delete :destroy
+        get :destroy
       end
 
       it "redirects to the root path" do 
