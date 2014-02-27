@@ -1,0 +1,12 @@
+<h2>Bootcamps</h2>
+</br>
+<% @bootcamp.each do |bootcamp| %>
+<div class = "row">
+  <div class = "col-md-4 col-md-offset-1">
+    <%= link_to(bootcamp.name, bootcamp_path(bootcamp)) %>
+  </div>
+  <div class = "col-md-4">
+    <%=bootcamp.description %>
+  </div>
+</div><!--end of row -->
+<% end %>

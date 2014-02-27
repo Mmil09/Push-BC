@@ -12,4 +12,8 @@ class Review < ActiveRecord::Base
     errors.add(:bootcamp_id, "You have already reviewed this bootcamp.") if Review.review_exists?(self.user_id, self.bootcamp_id).count > 0
   end
 
+  def username
+    self.user.username
+  end
+
 end

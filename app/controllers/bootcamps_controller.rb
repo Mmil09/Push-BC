@@ -1,9 +1,13 @@
 class BootcampsController < ApplicationController
   respond_to :html, :json
   before_action :set_bootcamp, only: [:edit, :show, :update]
-  before_action :require_log_in, except: [:show]
+  before_action :require_log_in, except: [:show, :index]
   before_action only: [:edit, :update] { require_bc_admin(@bootcamp) } 
-  before_action :require_admin, except: [:edit, :show, :update]
+  before_action :require_admin, except: [:edit, :show, :update, :index]
+
+  def index
+    @bootcamp = Bootcamp.all
+  end
   
   def new
     @bootcamp = Bootcamp.new
