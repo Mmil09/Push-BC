@@ -264,7 +264,7 @@ describe BootcampsController do
       end
     end
 
-      context "user not logged in" do 
+    context "user not logged in" do 
       it_behaves_like "require_sign_in" do
         let(:bootcamp) { Fabricate(:bootcamp) } 
         let(:action) { put :update, bootcamp: { name: "New bootcamp", description: "description of bootcamp" }, id: bootcamp.slug  }

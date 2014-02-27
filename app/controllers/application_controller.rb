@@ -42,7 +42,16 @@ class ApplicationController < ActionController::Base
     require_admin if !same_user?(id)
   end
 
-  def is_bc_admin?(bootcamp)
+  def bc_admin?
+    user = return_current_user
+    true if user.is_a?(BCAdmin)
+  end
+
+  def require_standard_user
+    require_admin if bc_admin?
+  end
+
+  def require_bc_admin(bootcamp)
     user = return_current_user
     require_admin if !user.is_bc_admin?(bootcamp.id)
   end

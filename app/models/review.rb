@@ -5,5 +5,11 @@ class Review < ActiveRecord::Base
   validates_length_of :overall, minimum: 300
   belongs_to :user
   belongs_to :bootcamp
+  scope :review_exists?, ->(user_id, bootcamp_id) { where(user_id: user_id, bootcamp_id: bootcamp_id) } 
+  validate :reviewed_by_user?, on: :create
+  
+  def reviewed_by_user?
+    errors.add(:bootcamp_id, "You have already reviewed this bootcamp.") if Review.review_exists?(self.user_id, self.bootcamp_id).count > 0
+  end
 
 end
