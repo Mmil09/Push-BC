@@ -30,3 +30,6 @@
 <% @bootcamp.reviews.each do |review| %>
   <%= render('show_review', review: review) %>
 <% end %>
+
+
+<%= @bootcamp.decorate.show_review_form %>

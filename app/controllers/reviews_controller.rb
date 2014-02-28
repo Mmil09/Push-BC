@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
       redirect_to(bootcamp_path(bootcamp))
     else
       flash[:error] = "Your review could not be created."
-      render "bootcamps/show"
+      redirect_to :back
     end
   end
 

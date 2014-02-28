@@ -12,5 +12,12 @@ class Bootcamp <ActiveRecord::Base
   has_many :course_materials, through: :bootcamp_materials
   has_many :reviews
 
+  def new_review
+    self.reviews.new
+  end
+
+  def current_user_reviewed?(current_user)
+    true if Review.review_exists?(current_user, self.id) > 0
+  end
 
 end

@@ -1,0 +1,39 @@
+<%= form_for [ @bootcamp, @bootcamp.new_review ] do |f| %>
+  <div class = "row">
+    <div class = "col-md-1 col-md-offset-1">
+      <%= f.label :rating %>
+    </div>
+    <div class = "col-md-1 col-md-offset-1">
+      <%= f.select :rating, options_for_select(1..5), {}, class: "form-control" %>
+    </div>
+  </div><!--end of row -->
+</br>
+  <div class = "row">
+    <div class = "col-md-2 col-md-offset-1">
+      <%= f.label "Your Background" %>
+    </div>
+    <div class = "col-md-5">
+      <%= f.text_area :background, class: "form-control" %>
+    </div>
+  </div><!--end of row-->
+</br>
+ <div class = "row">
+    <div class = "col-md-2 col-md-offset-1">
+      <%= f.label "Quality of instruction" %>
+    </div>
+    <div class = "col-md-5">
+      <%= f.text_area :instruction, class: "form-control" %>
+    </div>
+  </div><!--end of row-->
+</br>
+<div class = "row">
+    <div class = "col-md-2 col-md-offset-1">
+      <%= f.label "Overall" %>
+    </div>
+    <div class = "col-md-5">
+      <%= f.text_area :overall, class: "form-control" %>
+    </div>
+  </div><!--end of row-->
+</br>
+  <%= f.submit "Create Review", class: "btn btn-default" %>
+<% end %>
