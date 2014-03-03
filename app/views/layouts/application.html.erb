@@ -9,7 +9,7 @@
 <body>
 
     <div class = "container">
-      <%= render 'layouts/navigation' %>
+      <%= render 'layouts/navigation' if Rails.env.development? %>
     </div>
     
     <div class = "container">
