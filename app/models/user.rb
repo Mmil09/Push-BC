@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
   friendly_id :username, use: [:slugged, :history]
 
   validates :username, :email, presence: true, uniqueness: true, case_sensitive: false
-  validates :password , presence: true, confirmation: true
+  validates :password , presence: true
+  validates_confirmation_of :password
+  validates_presence_of :password_confirmation
   has_secure_password validations: false
   has_many :user_bootcamps
   has_many :bootcamps, through: :user_bootcamps

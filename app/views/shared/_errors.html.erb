@@ -1,0 +1,13 @@
+<% if obj.errors.any? %>
+  <% obj.errors.full_messages.each do |error| %>
+    <div class = "row">
+      <div class = "col-lg-4 col-lg-offset-2">
+        <p class = 'bg-danger'>
+          <%= error %>
+        </p>
+      </div>
+    </div>
+  </br>
+  <% end %>
+
+<% end %>

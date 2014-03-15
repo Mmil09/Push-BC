@@ -16,5 +16,25 @@ module ApplicationHelper
     navbar_link(title, address) if !logged_in?
   end
 
+  def model_backed?(form)
+    true if form != nil
+  end
+
+  def display_text_field_label(form, label)
+    if model_backed?(form)
+      form.label label
+    else
+      label_tag label
+    end
+  end
+
+  def display_text_field_element(form, name, type)
+    if model_backed?(form)
+      form.send("#{type}_field", name, {class: "form-control"})
+    else
+      send("#{type}_field_tag", name, '', { class: "form-control" })
+    end
+  end
+
 
 end
