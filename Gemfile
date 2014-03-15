@@ -12,6 +12,7 @@ gem 'friendly_id', '~> 5.0.0'
 gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'active_model_serializers'
 gem 'bootstrap-sass', '~> 3.1.1'
+gem "word-count-validator", "~> 1.0.0"
 
 
 

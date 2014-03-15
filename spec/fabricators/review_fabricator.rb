@@ -1,7 +1,7 @@
 Fabricator(:review) do
   rating { 5 }
-  background { Faker::Lorem.characters(160) }
-  instruction { Faker::Lorem.characters(160) }
-  overall { Faker::Lorem.characters(320) }
+  background { Faker::Lorem.words(160).join(' ') }
+  instruction { Faker::Lorem.words(160).join(' ') }
+  overall { Faker::Lorem.words(249).join(' ') }
   
 end
