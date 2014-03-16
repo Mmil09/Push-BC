@@ -7,11 +7,7 @@ class Review < ActiveRecord::Base
   belongs_to :bootcamp
   scope :review_exists?, ->(user_id, bootcamp_id) { where(user_id: user_id, bootcamp_id: bootcamp_id).count } 
   validate :reviewed_by_user?, before: :save
-  validate :background_enough_words?, before: :save
-  validate :instruction_enough_words?, before: :save
-  validate :overall_enough_words?, before: :save
-  
-  
+  validate :background_enough_words?, :instruction_enough_words?, :overall_enough_words?, before: :save
 
   def reviewed_by_user?
     errors.add(:bootcamp_id, "You have already reviewed this bootcamp.") if Review.review_exists?(self.user_id, self.bootcamp_id) > 0

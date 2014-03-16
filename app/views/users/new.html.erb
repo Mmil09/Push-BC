@@ -10,10 +10,12 @@
 <%= render('shared/form_text_field', form: f, label: :password, name: :password, type: "password") %>
 <%= render('shared/form_text_field', form: f, label: "Confirm Password", name: :password_confirmation, type: "password") %>
 
+
 <div class = "row">
   <div class = "col-lg-1 col-lg-offset-3">
     <%= f.submit 'Submit', class: "btn btn-default" %>
   </div>
 </div>
+
 
 <% end %>

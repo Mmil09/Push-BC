@@ -7,6 +7,7 @@ describe ReviewsController do
       let(:bootcamp) { Fabricate(:bootcamp) }
       before do
         current_user(bob)
+
         post :create, review: Fabricate.attributes_for(:review), bootcamp_id: bootcamp.slug
       end
 
@@ -42,6 +43,7 @@ describe ReviewsController do
       
       before do
         current_user(bob)
+        request.env["HTTP_REFERER"] = "where_i_came_from"
         post :create, review: Fabricate.attributes_for(:review), bootcamp_id: bootcamp.slug
       end
 
@@ -49,8 +51,8 @@ describe ReviewsController do
         expect(Review.count).to eq(1)
       end
 
-      it "renders teh bootcamps/show template" do 
-        expect(response).to render_template("bootcamps/show")
+      it "renders the bootcamps/show template" do 
+        expect(response).to redirect_to("where_i_came_from")
       end
 
       it "sets a review instance" do 

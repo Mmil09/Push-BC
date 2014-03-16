@@ -6,8 +6,7 @@ class User < ActiveRecord::Base
 
   validates :username, :email, presence: true, uniqueness: true, case_sensitive: false
   validates :password , presence: true
-  validates_confirmation_of :password
-  validates_presence_of :password_confirmation
+  validates_confirmation_of :password, before: :save
   has_secure_password validations: false
   has_many :user_bootcamps
   has_many :bootcamps, through: :user_bootcamps
