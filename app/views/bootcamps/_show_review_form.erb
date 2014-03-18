@@ -1,4 +1,4 @@
-<%= form_for [ @bootcamp, @bootcamp.new_review ] do |f| %>
+<%= form_for [ @bootcamp, @bootcamp.new_review ], html: {id: "review_form"} do |f| %>
   <div class = "row">
     <div class = "col-lg-1 col-lg-offset-1">
       <%= f.label :rating %>
@@ -13,27 +13,54 @@
       <%= f.label "Your Background" %>
     </div>
     <div class = "col-lg-5">
-      <%= f.text_area :background, class: "form-control" %>
+      <%= f.text_area :background, class: "form-control", id: "background" %>
     </div>
   </div><!--end of row-->
+  <div class = "row">
+    <div class = "col-lg-2 col-lg-offset-4" id = "background-wordcount">
+      Word Count:
+    </div>
+    <div class = "col-lg-2">
+      Minimum Words: 150
+    </div>
+    <div class = "col-lg-2" id = "background-error"></div>
+  </div><!--end of row -->
 </br>
  <div class = "row">
     <div class = "col-lg-2 col-lg-offset-1">
       <%= f.label "Quality of instruction" %>
     </div>
     <div class = "col-lg-5">
-      <%= f.text_area :instruction, class: "form-control" %>
+      <%= f.text_area :instruction, class: "form-control", id: "instruction" %>
     </div>
   </div><!--end of row-->
+  <div class = "row">
+    <div class = "col-lg-2 col-lg-offset-4" id = "instruction-wordcount">
+      Word Count:
+    </div>
+    <div class = "col-lg-2">
+      Minimum Words: 150
+    </div>
+    <div class = "col-lg-2" id = "instruction-error"></div>
+  </div><!--end of row -->
 </br>
 <div class = "row">
     <div class = "col-lg-2 col-lg-offset-1">
       <%= f.label "Overall" %>
     </div>
     <div class = "col-lg-5">
-      <%= f.text_area :overall, class: "form-control" %>
+      <%= f.text_area :overall, class: "form-control", id: "overall" %>
     </div>
   </div><!--end of row-->
+  <div class = "row">
+    <div class = "col-lg-2 col-lg-offset-4" id = "overall-wordcount">
+      Word Count:
+    </div>
+    <div class = "col-lg-2">
+      Minimum Words: 300
+    </div>
+    <div class = "col-lg-2" id = "overall-error"></div>
+  </div><!--end of row -->
 </br></br>
 <div class = "row">
   <div class = "col-lg-2 col-lg-offset-3">
