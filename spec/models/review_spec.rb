@@ -2,15 +2,35 @@ require 'spec_helper'
 require 'shoulda-matchers'
 
 describe Review do
-  it { should validate_presence_of(:rating) }
-  it { should ensure_inclusion_of(:rating).in_range(1..5) }
-  it { should validate_presence_of(:background) }
-  it { should validate_presence_of(:instruction) }
-  it { should validate_presence_of(:overall) }
   
   it { should belong_to(:user) }
   it { should belong_to(:bootcamp) }
 
+  context "user has not reviewed bootcamp" do 
+    let!(:bob) { Fabricate(:user) }
+    let!(:bootcamp) { Fabricate(:bootcamp) }
+
+    it "should validate presence of rating" do
+      review = Fabricate.build(:review, bootcamp_id: bootcamp.id, user_id: bob.id, rating: "")
+      expect(review.save).to eq(false) 
+    end 
+    it "should validate presence of background" do
+      review = Fabricate.build(:review, bootcamp_id: bootcamp.id, user_id: bob.id, background: "")
+      expect(review.save).to eq(false) 
+    end 
+    it "should validate presence of instruction" do
+      review = Fabricate.build(:review, bootcamp_id: bootcamp.id, user_id: bob.id, instruction: "")
+      expect(review.save).to eq(false)
+    end
+    it "should validate presence of overall" do
+      review = Fabricate.build(:review, bootcamp_id: bootcamp.id, user_id: bob.id, overall: "")
+      expect(review.save).to eq(false)
+    end 
+    it "should allow rating to only be between 1 and 5" do
+      review = Fabricate.build(:review, bootcamp_id: bootcamp.id, user_id: bob.id, rating: 8)
+      expect(review.save).to eq(false)
+    end
+  end 
 
   context "user has already created a review for bootcamp" do 
     let!(:bob) { Fabricate(:user) }

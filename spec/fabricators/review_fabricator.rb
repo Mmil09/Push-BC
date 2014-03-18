@@ -2,6 +2,10 @@ Fabricator(:review) do
   rating { 5 }
   background { Faker::Lorem.words(160).join(' ') }
   instruction { Faker::Lorem.words(160).join(' ') }
-  overall { Faker::Lorem.words(249).join(' ') }
+  overall { "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis purus dolor, egestas at dictum a, tincidunt et dui. Maecenas vulputate, ipsum id luctus vestibulum, tellus dui aliquam purus, vel iaculis arcu risus a felis. Aliquam erat volutpat. Duis urna libero, malesuada vitae lobortis in, ullamcorper id felis. Sed augue sapien, rutrum eu eleifend ac, laoreet ac mauris. Morbi lobortis, lorem ac suscipit adipiscing, arcu odio faucibus magna, vitae pellentesque nibh enim non velit. Nam semper massa ipsum, vitae lobortis enim accumsan vel. In hac habitasse platea dictumst. Maecenas nibh dui, adipiscing sed mi vel, scelerisque accumsan odio. Suspendisse vulputate diam non mi lacinia gravida. Cras ut neque orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed sed lectus rhoncus, tempor leo sit amet, sodales odio. Integer et luctus neque. Sed feugiat porttitor elementum.
+
+Phasellus placerat ante sed nunc euismod bibendum. Duis mauris ipsum, posuere vitae imperdiet sed, aliquet eu nunc. Curabitur a lacus vestibulum, dignissim sapien vel, viverra tellus. Sed scelerisque nisi magna, et sollicitudin lacus molestie quis. Sed id est tellus. Sed ac mattis erat. Etiam ac mauris accumsan, pretium leo in, euismod mauris. In ac enim sed eros malesuada vulputate. Duis ornare, augue eu mattis sollicitudin, nisi quam commodo augue, rhoncus molestie lacus ante a massa. Aliquam magna felis, mollis nec risus quis, gravida rutrum felis. Nullam sit amet gravida libero, vel elementum ante. In a molestie libero. Duis ullamcorper ac velit nec congue. Nullam ut erat vestibulum, congue augue vitae, volutpat libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum mollis convallis ipsum, ut viverra lacus interdum vel. Integer eu pretium eros. Donec felis odio, tincidunt a vulputate at, placerat eget lorem. Sed a arcu vel massa viverra ornare. Donec semper vitae." }
   
 end
