@@ -13,4 +13,5 @@ Pushbc::Application.routes.draw do
   end
   
   resources :bc_admins, only: [:new, :create]
+  resources :replies, only: [:create]
 end
