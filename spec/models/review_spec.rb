@@ -5,6 +5,7 @@ describe Review do
   
   it { should belong_to(:user) }
   it { should belong_to(:bootcamp) }
+  it { should have_one(:reply) }
 
   context "user has not reviewed bootcamp" do 
     let!(:bob) { Fabricate(:user) }
