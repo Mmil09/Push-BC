@@ -1,0 +1,92 @@
+{
+  "scan_info": {
+    "app_path": "/home/daniel/Documents/sites/pushbc",
+    "rails_version": "4.0.3",
+    "security_warnings": 1,
+    "start_time": "2014-03-26 14:25:19 -0400",
+    "end_time": "2014-03-26 14:25:19 -0400",
+    "duration": 0.292834795,
+    "checks_performed": [
+      "BasicAuth",
+      "ContentTag",
+      "CrossSiteScripting",
+      "DefaultRoutes",
+      "Deserialize",
+      "DetailedExceptions",
+      "DigestDoS",
+      "EscapeFunction",
+      "Evaluation",
+      "Execute",
+      "FileAccess",
+      "FilterSkipping",
+      "ForgerySetting",
+      "HeaderDoS",
+      "I18nXSS",
+      "JRubyXML",
+      "JSONParsing",
+      "LinkTo",
+      "LinkToHref",
+      "MailTo",
+      "MassAssignment",
+      "ModelAttrAccessible",
+      "ModelAttributes",
+      "ModelSerialize",
+      "NestedAttributes",
+      "NumberToCurrency",
+      "QuoteTableName",
+      "Redirect",
+      "Render",
+      "RenderDoS",
+      "ResponseSplitting",
+      "SQL",
+      "SSLVerify",
+      "SafeBufferManipulation",
+      "SanitizeMethods",
+      "SelectTag",
+      "SelectVulnerability",
+      "Send",
+      "SendFile",
+      "SessionSettings",
+      "SimpleFormat",
+      "SingleQuotes",
+      "SkipBeforeFilter",
+      "StripTags",
+      "SymbolDoS",
+      "TranslateBug",
+      "UnsafeReflection",
+      "ValidationRegex",
+      "WithoutProtection",
+      "YAMLParsing"
+    ],
+    "number_of_controllers": 9,
+    "number_of_models": 10,
+    "number_of_templates": 18,
+    "ruby_version": "2.1.0",
+    "brakeman_version": "2.4.3"
+  },
+  "warnings": [
+    {
+      "warning_type": "Session Setting",
+      "warning_code": 29,
+      "fingerprint": "715ad9c0d76f57a6a657192574d528b620176a80fec969e2f63c88eacab0b984",
+      "message": "Session secret should not be included in version control",
+      "file": "config/initializers/secret_token.rb",
+      "line": 12,
+      "link": "http://brakemanscanner.org/docs/warning_types/session_setting/",
+      "code": null,
+      "render_path": null,
+      "location": null,
+      "user_input": null,
+      "confidence": "High"
+    }
+  ],
+  "ignored_warnings": [
+
+  ],
+  "errors": [
+    {
+      "error": "(string):6 :: parse error on value \",\" (tCOMMA)",
+      "location": "could not parse /home/daniel/Documents/sites/pushbc/app/views/users/_form_field.html.erb"
+    }
+  ]
+}

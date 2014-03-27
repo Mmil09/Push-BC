@@ -1,0 +1,5 @@
+
+<%= form_tag(controller: "replies", action: "create", method: "post") %>
+<%= hidden_field_tag(:review_id, review.id) %>
+<%= text_area_tag(:response) %>
+<%= submit_tag %>

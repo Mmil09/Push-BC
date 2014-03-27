@@ -11,10 +11,13 @@ class User < ActiveRecord::Base
   has_many :user_bootcamps
   has_many :bootcamps, through: :user_bootcamps
   has_many :reviews
+  has_many :replies
 
   def is_bc_admin?(bootcamp_id)
     self.bootcamps.exists?(bootcamp_id) ? true : false
   end
+
+  
   
 
 end

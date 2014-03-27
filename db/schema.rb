@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140319193508) do
+ActiveRecord::Schema.define(version: 20140327172652) do
 
   create_table "bootcamp_materials", force: true do |t|
     t.integer "bootcamp_id"
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20140319193508) do
   create_table "replies", force: true do |t|
     t.text     "response"
     t.integer  "review_id"
-    t.integer  "bc_admin_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

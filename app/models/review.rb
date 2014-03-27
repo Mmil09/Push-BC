@@ -9,7 +9,7 @@ class Review < ActiveRecord::Base
   validates_length_of :overall, minimum: 300
   belongs_to :user
   belongs_to :bootcamp
-  has_one :reply
+  has_many :replies
   scope :review_exists?, ->(user_id, bootcamp_id) { where(user_id: user_id, bootcamp_id: bootcamp_id).count } 
   validate :reviewed_by_user?, before: :save
   validate :background_enough_words?, :instruction_enough_words?, :overall_enough_words?, before: :save
