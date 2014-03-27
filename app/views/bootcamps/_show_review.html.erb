@@ -49,3 +49,13 @@
     </div>
   </div>
 </br></br>
+
+<% review.replies.each do |reply| %>
+<%= reply.response %>
+<%= reply.user.username %>
+<% end %>
+
+<%= @bootcamp.decorate.display_reply_form?(review) %>
+
+
+

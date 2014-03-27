@@ -20,10 +20,10 @@ class RepliesController < ApplicationController
   end
 
   def review
-    Review.find(params[:reply][:review_id])
+    Review.find(params[:review_id])
   end
 
   def response_params
-    params.require(:reply).permit(:response, :review_id).merge(bc_admin_id: current_user)
+    params.permit(:response, :review_id).merge(bc_admin_id: current_user)
   end
 end

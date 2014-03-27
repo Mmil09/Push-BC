@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :logged_in?, :current_user
+  helper_method :logged_in?, :current_user, :bc_admin_of?, :bc_admin?
 
   private
 
@@ -55,7 +55,12 @@ class ApplicationController < ActionController::Base
 
   def require_bc_admin(bootcamp)
     user = return_current_user
-    require_admin if !user.is_bc_admin?(bootcamp.id)
+    require_admin if !bc_admin_of?(bootcamp)
+  end
+
+  def bc_admin_of?(bootcamp)
+    user = return_current_user
+    true if user.is_bc_admin?(bootcamp.id)
   end
 
   def redirect_unauthorized_user

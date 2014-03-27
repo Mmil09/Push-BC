@@ -10,7 +10,7 @@ describe RepliesController do
       before do 
         current_user(bob)
         request.env["HTTP_REFERER"] = "where_i_came_from"
-        post :create, reply: Fabricate.attributes_for(:reply, review_id: review.id)
+        post :create, Fabricate.attributes_for(:reply, review_id: review.id)
       end
       
       it "redirects to where I came from" do 
@@ -38,7 +38,7 @@ describe RepliesController do
       before do 
         current_user(bob)
         request.env["HTTP_REFERER"] = "where_i_came_from"
-        post :create, reply: Fabricate.attributes_for(:reply, response: "", review_id: review.id)
+        post :create, Fabricate.attributes_for(:reply, response: "", review_id: review.id)
       end
 
       it "creates an instance of reply" do 
@@ -62,7 +62,7 @@ describe RepliesController do
       let!(:review) {Fabricate(:review, bootcamp_id: bootcamp.id, user_id: joe.id)}
       before do 
         current_user(bob)
-        post :create, reply: Fabricate.attributes_for(:reply, review_id: review.id)
+        post :create, Fabricate.attributes_for(:reply, review_id: review.id)
       end
 
       it "redirects to where_i_came_from" do
@@ -83,7 +83,7 @@ describe RepliesController do
         let(:bootcamp) { Fabricate(:bootcamp) } 
         let(:bob) {Fabricate(:user) }
         let(:review) { Fabricate(:review, bootcamp_id: bootcamp.id, user_id: bob.id) }
-        let(:action) { post :create, reply: Fabricate.attributes_for(:reply, review_id: review.id) }
+        let(:action) { post :create, Fabricate.attributes_for(:reply, review_id: review.id) }
       end
     end
   end
