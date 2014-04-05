@@ -1,0 +1,150 @@
+.section {
+  padding: 20px;
+}
+
+hr {
+  margin: 10px;
+  border-top: 1px solid #CCCCCC;
+}
+
+.navbar, 
+.navbar a, 
+.dropdown-menu>li>a,
+.dropdown-header,
+.dropdown-menu .divider,
+.dropdown-menu,
+#footer {
+  color:#CCCCCC; 
+  font-family: 'Metrophobic', sans-serif;
+  background-color: #990000;
+  font-weight: bold;
+}
+
+.nav>li>a:hover, 
+.nav>li>a:focus,
+.nav .open>a, .nav .open>a:hover, 
+.nav .open>a:focus,
+.navbar-toggle:hover,
+.dropdown-menu>li>a:hover, 
+.dropdown-menu>li>a:focus,
+.navbar-nav>.active>a {
+  background-color: #CC2C2C;
+  color: #ffffff;
+  background-image: none;
+}
+
+.dropdown-header {
+background-color: #660000;
+}
+
+.nav-logo {
+  display: inline-block;
+  position: relative;
+  top:-15px;
+  width: 200px; /* 200px; */
+  height: auto; /*70px; */
+  margin: 0 10px;
+  background-color: #CC2C2C;
+  z-index: 3;
+  border: 10px solid #ffffff; 
+  border-width: 0px 5px 5px 5px;
+  background-image: url('../img/pushBC1.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.icon-bar {
+  background-color: #ffffff;
+}
+
+#sign-in {
+  display: inline;
+  width: auto;
+  height: 100%;
+  width:auto;
+  margin-left: 100px;
+  margin-top: 7px;
+  position: relative;
+  float:right;
+}
+
+#sign-in>li {
+  margin: 0 2px;
+}
+
+.jumbotron {
+  font-family: 'Metrophobic', sans-serif;
+  background-color:rgba(216, 207, 163, 1);
+  margin-top:50px;
+}
+
+.nav-logo, .navbar {
+  box-shadow: 0px 3px 5px rgba(0,0,0,0.8); 
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: auto;
+}
+#footer {
+  background-color: #3D3737;
+  padding: 10px;
+  position: relative;
+  margin-top:100px;
+  bottom: 0px;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: auto;
+  text-align: center;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.row-centered {
+  margin: 0 auto;
+}
+
+#social {
+  width: 100%;
+}
+
+.footer-nav {
+  margin: 0 auto;
+  padding: 10px 0px;
+  width: 60%;
+}
+
+.footer-nav>li {
+  display: inline-block;
+  padding: 0px 15px;
+}
+
+.footer-nav>li>a>button {
+  width: 39px;
+}
+
+.footer-nav>div {
+  padding: 5px 0px;
+}
+
+.footer-brand {
+  float: right;
+  font-size: 11px;'
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-top: 10px;
+}
+
+.footer-brand::before {
+  content: "\00a9"
+}
+

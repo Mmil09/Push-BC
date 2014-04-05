@@ -3,10 +3,11 @@ class SessionsController < ApplicationController
   before_action :require_log_in, only: :destroy
 
   def new
+
   end
 
   def create
-    @user = User.find_by(username: params[:username])
+    @user = User.case_insensitive_find('username', params[:username])
     if @user && @user.authenticate(params[:password])
       session[:user] = @user.id
       flash[:success] = "You have successfully logged in!"

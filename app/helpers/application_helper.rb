@@ -8,6 +8,10 @@ module ApplicationHelper
     render('layouts/navigation_item', title: title, address: address )
   end
 
+  def button
+    #render('layouts/button'), class: class
+  end
+
   def display_link_logged_in(title, address)
     navbar_link(title, address) if logged_in?
   end

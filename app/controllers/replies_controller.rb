@@ -24,6 +24,6 @@ class RepliesController < ApplicationController
   end
 
   def response_params
-    params.permit(:response, :review_id).merge(bc_admin_id: current_user)
+    params.permit(:response, :review_id).merge(user_id: current_user)
   end
 end
