@@ -1,6 +1,6 @@
 Pushbc::Application.routes.draw do
 
-  root to: 'pages#index'
+  root to: 'pages#show', :id => 'home'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
@@ -14,4 +14,5 @@ Pushbc::Application.routes.draw do
   
   resources :bc_admins, only: [:new, :create]
   resources :replies, only: [:create]
+  resources :pages
 end

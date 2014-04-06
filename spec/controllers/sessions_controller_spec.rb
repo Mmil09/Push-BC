@@ -53,7 +53,7 @@ describe SessionsController do
 
     context "user has incorrect username" do 
       let(:bob) { Fabricate(:user) }
-      before { post :create, username: bob.password, password: "sometypo" } 
+      before { post :create, username: bob.username, password: "sometypo" } 
 
       it "renders the new template" do 
         expect(response).to render_template(:new)
