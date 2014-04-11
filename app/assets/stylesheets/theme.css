@@ -189,6 +189,8 @@ h4 {
 .review h3 {
   font-family: 'Noto Sans', sans-serif;
   color:rgba(31, 117, 184, 0.67);
+  margin-top:10px;
+  padding-left: 10px;
 }
 
 #background, #instruction, #overall {
