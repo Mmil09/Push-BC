@@ -1,54 +1,53 @@
-<div class = "row">
-    <div class = "col-md-2 col-md-offset-2">
-      <%= review.username %>
-    </div>
-    <div class = "col-md-2">
-      Rating: <%= review.rating %> stars
-    </div>
-  </div><!--end of row -->
-</br>
+<div class="container-fluid review-display">
   <div class = "row">
-    <div class = "row">
-      <div class = "col-md-4 col-md-offset-2">
-        <strong>Background</strong>
+      <div class = "col-md-6">
+        <strong>User: </strong><%= review.username %> <i class="fa fa-user"></i>
       </div>
-    </div>
+      <div class = "col-md-6">
+        <strong>Rating: </strong><%= review.rating %>/5 <i class="fa fa-star"></i>
+      </div>
+    </div><!--end of row -->
+
   </br>
+
     <div class = "row">
-      <div class = "col-md-4 col-md-offset-2">
-        <%= review.background %>
+        <div class = "col-md-12">
+          <strong>Background</strong>
+        </div>
       </div>
-    </div>
-  </div>
-  </br>
-  <div class = "row">
+      <div class = "row">
+        <div class = "col-md-12">
+          <%= review.background %>
+        </div>
+      </div>
+
+    </br>
+
+      <div class = "row">
+        <div class = "col-md-12">
+          <strong>Quality of Instruction</strong>
+        </div>
+      </div>
+      <div class = "row">
+        <div class = "col-md-12">
+          <%= review.instruction %>
+        </div>
+      </div>
+
+    </br>
+
     <div class = "row">
-      <div class = "col-md-4 col-md-offset-2">
-        <strong>Quality of Instruction</strong>
+        <div class = "col-md-12">
+          <strong>Overall</strong>
+        </div>
       </div>
-    </div>
-  </br>
-    <div class = "row">
-      <div class = "col-md-4 col-md-offset-2">
-        <%= review.instruction %>
+      <div class = "row">
+        <div class = "col-md-12">
+           <%= review.overall %>
+        </div>
       </div>
-    </div>
-  </div>
-  </br>
-  <div class = "row">
-    <div class = "row">
-      <div class = "col-md-4 col-md-offset-2">
-        <strong>Overall</strong>
-      </div>
-    </div>
-  </br>
-    <div class = "row">
-      <div class = "col-md-4 col-md-offset-2">
-        <%= review.overall %>
-      </div>
-    </div>
-  </div>
-</br></br>
+
+</div>
 
 <% review.replies.each do |reply| %>
 <%= reply.response %>

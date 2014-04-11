@@ -1,32 +1,67 @@
 <%= javascript_include_tag "review_form" %>
-<h2><%= @bootcamp.name %></h2>
 
-<%= render('show_field', field_name: "Description", field: @bootcamp.description) %>
-<%= render('show_field', field_name: "Format", field: @bootcamp.format) %>
-<%= render('show_field', field_name: "Length", field: @bootcamp.length) %>
-<%= render('show_field', field_name: "Class Size", field: @bootcamp.class_size) %>
-<%= render('show_field', field_name: "Sessions per year", field: @bootcamp.sessions) %>
-<%= render('show_field', field_name: "Hour/wk Commitment", field: @bootcamp.hours) %>
-<%= render('show_field', field_name: "Min Skill Level", field: @bootcamp.minimum_skill) %>
-<%= render('show_field', field_name: "Placement Test", field: @bootcamp.placement_test) %>
-<%= render('show_field', field_name: "Prep Work", field: @bootcamp.prep_work) %>
-<%= render('show_field', field_name: "Cost", field: @bootcamp.cost) %>
-<%= render('show_field', field_name: "Refund", field: @bootcamp.refund) %>
-<%= render('show_field', field_name: "Financing", field: @bootcamp.financing) %>
-<%= render('show_field', field_name: "Deposit", field: @bootcamp.deposit) %>
-<%= render('show_field', field_name: "Payment Plan", field: @bootcamp.payment_plan) %>
-<%= render('show_field', field_name: "Job Assistance", field: @bootcamp.job_assistance) %>
-<%= render('show_field', field_name: "Housing", field: @bootcamp.housing) %>
-<%= render('show_field', field_name: "Visa Assistance", field: @bootcamp.visa_assistance) %>
-<%= render('show_field', field_name: "Email", field: @bootcamp.email) %>
-<%= render('show_field', field_name: "Phone", field: @bootcamp.phone) %>
-<%= render('show_field', field_name: "Address", field: @bootcamp.address) %>
-<%= render('show_field', field_name: "City", field: @bootcamp.city) %>
-<%= render('show_field', field_name: "State", field: @bootcamp.state) %>
-<%= render('show_field', field_name: "State", field: @bootcamp.country) %>
-<%= render('show_field', field_name: "State", field: @bootcamp.website) %>
+<%= render('breadcrumb') %>
+
+<h1><%= @bootcamp.name %></h1>
+
+<h2>Description/Summary</h2>
+
+<%= render('description') %>
+
+<h2>Basic Info</h2>
+
+<div class="row">
+	<div class="col-md-6">
+		<table class="table table-striped table-bordered info-table">
+			<thead></thead>
+			<tbody>
+				<%= render('show_field', field_name: "Format", field: @bootcamp.format) %>
+				<%= render('show_field', field_name: "Length", field: @bootcamp.length) %>
+				<%= render('show_field', field_name: "Class Size", field: @bootcamp.class_size) %>
+				<%= render('show_field', field_name: "Sessions per year", field: @bootcamp.sessions) %>
+				<%= render('show_field', field_name: "Hour/wk Commitment", field: @bootcamp.hours) %>
+				<%= render('show_field', field_name: "Min Skill Level", field: @bootcamp.minimum_skill) %>
+				<%= render('show_field', field_name: "Placement Test", field: @bootcamp.placement_test) %>
+				<%= render('show_field', field_name: "Prep Work", field: @bootcamp.prep_work) %>
+				<%= render('show_field', field_name: "Cost", field: @bootcamp.cost) %>
+				<%= render('show_field', field_name: "Refund", field: @bootcamp.refund) %>
+				<%= render('show_field', field_name: "Financing", field: @bootcamp.financing) %>
+				<%= render('show_field', field_name: "Deposit", field: @bootcamp.deposit) %>
+				<%= render('show_field', field_name: "Payment Plan", field: @bootcamp.payment_plan) %>
+				<%= render('show_field', field_name: "Job Assistance", field: @bootcamp.job_assistance) %>
+				<%= render('show_field', field_name: "Housing", field: @bootcamp.housing) %>
+				<%= render('show_field', field_name: "Visa Assistance", field: @bootcamp.visa_assistance) %>
+			</tbody>
+		</table>
+	</div> <!-- end of left table -->
+
+	<div class="col-md-6">
+		<table class="table table-striped table-bordered location-table">
+			<thead></thead>
+			<tbody>
+				<%= render('show_field', field_name: "Address", field: @bootcamp.address) %>
+				<%= render('show_field', field_name: "City", field: @bootcamp.city) %>
+				<%= render('show_field', field_name: "State", field: @bootcamp.state) %>
+				<%= render('show_field', field_name: "Country", field: @bootcamp.country) %>
+				<%= render('show_field', field_name: "Email", field: @bootcamp.email) %>
+				<%= render('show_field', field_name: "Phone", field: @bootcamp.phone) %>				
+				<%= render('show_field', field_name: "Website", field: @bootcamp.website) %>
+			</tbody>
+		</table>
+	</div>
+
+</div>
 
 <h2>Reviews</h2>
+<ul class="pagination">
+  <li><a href="#">&laquo;</a></li>
+  <li><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+  <li><a href="#">&raquo;</a></li>
+</ul>
 
 <% @bootcamp.reviews.each do |review| %>
   <%= render('show_review', review: review) %>
@@ -34,3 +69,14 @@
 
 
 <%= @bootcamp.decorate.show_review_form %>
+
+
+<ul class="pagination">
+  <li><a href="#">&laquo;</a></li>
+  <li><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+  <li><a href="#">&raquo;</a></li>
+</ul>

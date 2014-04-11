@@ -1,69 +1,96 @@
 <%= form_for [ @bootcamp, @bootcamp.new_review ], html: {id: "review_form"} do |f| %>
-  <div class = "row">
-    <div class = "col-lg-1 col-lg-offset-1">
-      <%= f.label :rating %>
-    </div>
-    <div class = "col-lg-1 col-lg-offset-1">
-      <%= f.select :rating, options_for_select(1..5), {}, class: "form-control" %>
-    </div>
-  </div><!--end of row -->
-</br>
-  <div class = "row">
-    <div class = "col-lg-2 col-lg-offset-1">
-      <%= f.label "Your Background" %>
-    </div>
-    <div class = "col-lg-5">
-      <%= f.text_area :background, class: "form-control", id: "background" %>
-    </div>
-  </div><!--end of row-->
-  <div class = "row">
-    <div class = "col-lg-2 col-lg-offset-4" id = "background-wordcount">
-      Word Count:
-    </div>
-    <div class = "col-lg-2">
-      Minimum Words: 150
-    </div>
-    <div class = "col-lg-2" id = "background-error"></div>
-  </div><!--end of row -->
-</br>
- <div class = "row">
-    <div class = "col-lg-2 col-lg-offset-1">
-      <%= f.label "Quality of instruction" %>
-    </div>
-    <div class = "col-lg-5">
-      <%= f.text_area :instruction, class: "form-control", id: "instruction" %>
-    </div>
-  </div><!--end of row-->
-  <div class = "row">
-    <div class = "col-lg-2 col-lg-offset-4" id = "instruction-wordcount">
-      Word Count:
-    </div>
-    <div class = "col-lg-2">
-      Minimum Words: 150
-    </div>
-    <div class = "col-lg-2" id = "instruction-error"></div>
-  </div><!--end of row -->
-</br>
-<div class = "row">
-    <div class = "col-lg-2 col-lg-offset-1">
-      <%= f.label "Overall" %>
-    </div>
-    <div class = "col-lg-5">
-      <%= f.text_area :overall, class: "form-control", id: "overall" %>
-    </div>
-  </div><!--end of row-->
-  <div class = "row">
-    <div class = "col-lg-2 col-lg-offset-4" id = "overall-wordcount">
-      Word Count:
-    </div>
-    <div class = "col-lg-2">
-      Minimum Words: 300
-    </div>
-    <div class = "col-lg-2" id = "overall-error"></div>
-  </div><!--end of row -->
-</br></br>
-<div class = "row">
-  <div class = "col-lg-2 col-lg-offset-3">
-    <%= f.submit "Create Review", class: "btn btn-default" %>
-  </div>
+<% colclass = "10" %>
+
+<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+<div class="container-fluid">
+  <div class="container review">
+    
+   <div class="row" id="review-header">
+      <div class="col-xs-1">
+        <button type="button" class="btn btn-default btn-primary btn-md pull-left" id="form-toggle">
+          <i class="fa fa-plus-square" id="icon"></i>
+        </button>
+      </div>
+      <div class="col-xs-10">
+      <h4>Write a review for <%= @bootcamp.name %></h4>
+      </div>
+      
+      <div class="col-xs-1"> 
+      <i class="fa fa-pencil-square fa-3x half-transparent pull-right"></i>  
+      </div>   
+   </div>
+
+    <div id="review-panel" class="minimized">
+    <!-- ****************Rating****************** -->
+        <div class="row">
+          <div class="col-md-2"><%= f.label :rating %></div>
+          <div class="col-md-2"><%= f.select :rating, options_for_select(1..5), {}, class: "form-control" %></div>  
+        </div>
+        
+        <br/>
+
+        <!-- ****************Background****************** -->
+        <div class="row">
+          <div class="col-md-2"><%= f.label "Your Background" %></div>
+          <div class="col-md-10"> <%= f.text_area :background, class: "form-control", id: "background" %></div>  
+        </div>
+        <div class="row wordcount">
+           <div class = "col-md-4 col-md-offset-2" id = "background-wordcount">Word Count:</div>
+           <div class = "col-md-4" id = "background-wordcount">Minimum words: 150</div>
+           <div class = "col-md-2" id = "background-error"></div>
+        </div>
+
+        <!-- ****************Background****************** -->
+        <div class="row">
+          <div class="col-md-2"><%= f.label "Quality of instruction" %></div>
+          <div class="col-md-10"><%= f.text_area :instruction, class: "form-control", id: "instruction" %></div>  
+        </div>
+        <div class="row wordcount">
+           <div class = "col-lg-2 col-lg-offset-4" id = "instruction-wordcount">Word Count:</div>
+           <div class = "col-md-4" id = "instruction-wordcount">Minimum words: 150</div>
+           <div class = "col-md-2" id = "instruction-error"></div>
+        </div>
+
+        <!-- ****************Overall****************** -->
+        <div class="row">
+          <div class="col-md-2"> <%= f.label "Overall" %></div>
+          <div class="col-md-10"> <%= f.text_area :overall, class: "form-control", id: "overall" %></div>  
+        </div>
+        <div class="row wordcount">
+           <div class = "col-lg-2 col-lg-offset-4" id = "overall-wordcount">Word Count:</div>
+           <div class = "col-md-4" id = "overall-wordcount">Minimum words: 300</div>
+           <div class = "col-md-2" id = "overall-error"></div>
+        </div>
+
+        <div class = "row">
+          <div class = "col-md-10 col-md-offset-2">
+            <%= f.submit "Create Review", class: "btn btn-default" %>
+          </div>
+        </div>
+      </div> <!--end of review-panel -->
+  </div> <!-- end of container review -->
+</div> <!-- end of container fluid -->
+
 <% end %>
+
+<script>
+
+var panel = $('#review-panel');
+var icon = $('#icon');
+var animation = "blind";
+var animationOptions;
+var animationTime = 500;
+var buttonBaseClass = "fa ";
+var plusClass = "fa-plus-square";
+var minusClass = "fa-minus-square";
+
+
+$('#form-toggle').click(function() {
+  panel.toggle(animation, animationOptions, animationTime, function() {
+    icon.toggleClass(plusClass).toggleClass(minusClass);
+  });
+});
+
+</script>

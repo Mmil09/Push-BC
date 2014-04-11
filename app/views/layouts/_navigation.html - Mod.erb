@@ -23,13 +23,14 @@
               </ul>
             </li>
             <%= navbar_link("Bootcamps", bootcamps_path) %>
-           
           </ul>
-          <ul class="nav navbar-nav pull-right" id="sign-in">
-            <%= display_button_logged_out("Sign In", login_path) %>
-            <%= display_button_logged_out("Register", new_user_path) %>
-            <%= display_button_logged_in("Log Out", logout_path) %>
+          <ul class="nav navbar-nav sign-in">
+            
+            <li><%= render 'layouts/button' %></li> 
+            <li class="btn btn-md btn-success">Register</li>
           </ul>
+          
+        
         </div><!--/.nav-collapse -->
       </div>
     </div><!-- end div class="navbar" -->

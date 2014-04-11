@@ -8,16 +8,16 @@ module ApplicationHelper
     render('layouts/navigation_item', title: title, address: address )
   end
 
-  def button
-    #render('layouts/button'), class: class
+  def menu_button(text, path)
+    render('layouts/button', text: text, path: path)
   end
 
-  def display_link_logged_in(title, address)
-    navbar_link(title, address) if logged_in?
+  def display_button_logged_in(text, path)
+    menu_button(text, path) if logged_in?
   end
 
-  def display_link_logged_out(title, address)
-    navbar_link(title, address) if !logged_in?
+  def display_button_logged_out(text, path)
+    menu_button(text, path) if !logged_in?
   end
 
   def model_backed?(form)

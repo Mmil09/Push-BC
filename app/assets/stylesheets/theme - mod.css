@@ -1,7 +1,7 @@
 /*
 NAVBAR STYLES
 ---------------------------------------------------*/
-h1,
+
 h2,
 h3,
 h4,
@@ -69,10 +69,10 @@ background-color: #660000;
 
 #sign-in {
   display: inline;
-  min-width: 155px;
   width: auto;
   height: 100%;
-  margin-left: 0px;
+  width:163px;
+  margin-left: 100px;
   margin-top: 7px;
   position: relative;
   float:right;
@@ -83,36 +83,26 @@ background-color: #660000;
   display: inline-block;
 }
 
+.jumbotron {
+  font-family: 'Metrophobic', sans-serif;
+  background-color:rgba(216, 207, 163, 1);
+  margin-top:50px;
+}
+
 .nav-logo, .navbar {
   box-shadow: 0px 3px 5px rgba(0,0,0,0.8); 
 }
 
+.sign-in {
+
+}
 /*
 MAIN ELEMENT STYLES
 ---------------------------------------------------*/
 
 body, html {
   height: 100%;
-  font-family: 'Noto Sans', sans-serif;
-  font-size: 15px;
 }
-
-h1,h2,h3 {
-  color: rgb(154, 167, 209);
-}
-
-h1 {
-  color: rgb(60,60,60);
-}
-
-h2 {
-  margin: 60px 0 30px 0; 
-}
-
-h4 {
-  color: rgb(95, 95, 95);
-}
-
 
 .main-content {
   min-height: 100%;
@@ -127,18 +117,12 @@ h4 {
   margin: 10px 0px 30px 0px;
   width: 100%;
   height: 2px;
-  background-color: #D3D3D3;
+  background-color: #999999;
   /* background-image: -moz-linear-gradient(right, #999999, #ffffff);
   background-image: -webkit-gradient(linear, 0 0, 100% 0, from(#999999), to(#ffffff));
   background-image: -webkit-linear-gradient(right, #999999, #ffffff);
   background-image: -o-linear-gradient(right, #999999, #ffffff);
   background-image: linear-gradient(to right, #999999, #ffffff); */
-}
-
-.jumbotron {
-  font-family: 'Metrophobic', sans-serif;
-  background-color:rgba(216, 207, 163, 1);
-  margin-top:50px;
 }
 
 .col-centered{
@@ -152,92 +136,6 @@ h4 {
 
 .table-label {
   width: 200px;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.half-transparent {
-  opacity: 0.5;
-}
-
-/* BOOTCAMP & REVIEW STYLES
----------------------------------------------------*/
-
-.panel {
-  width: 90%;
-  margin: 0 auto;
-}
-
-.location-table {
-  background-color: rgb(202, 209, 154);
-}
-
-.info-table {
-  background-color: rgba(154, 167, 209, 0.49);
-}
-
-.review {
-  margin: 20px 0;
-  padding: 20px;
-  width: 85%;
-  background-color: rgba(213, 209, 122, .6);
-  border-radius: 5px; 
-}
-
-.review h3 {
-  font-family: 'Noto Sans', sans-serif;
-  color:rgba(31, 117, 184, 0.67);
-}
-
-#background, #instruction, #overall {
-  height: 200px; 
-  width: 100%;
-}
-
-#review_rating {
-  width: 115px;
-}
-
-.hr-review {
-  width: 60%;
-  margin: 0 auto;
-  margin-bottom: 30px;
-}
-
-.wordcount {
-  margin-bottom: 25px;
-  font-style: italic;
-}
-
-.review-display {
-  background-color: #E9E9E9;
-  padding: 30px 50px;
-  margin-bottom: 35px;
-  border-radius: 5px;
-  border: 1px solid #AAAAAA;
-}
-
-.review,
-.panel, 
-.review-display,
-.table {
-  box-shadow: 1px 1px 7px rgba(0,0,0,0.5);
-}
-
-.minimized {
-  display: none;
-}
-
-#review-panel {
-  height: 100%;
-  margin-top: 20px;
-  z-index: 1;
-}
-
-#review-header {
-  z-index: 2;
 }
 
 /* FOOTER (STICKY) STYLES
@@ -304,3 +202,4 @@ h4 {
 .footer-brand::before {
   content: "\00a9"
 }
+

@@ -4,14 +4,16 @@
   <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="Push(BC)" content="">
+    <meta name="Push(BC)" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
     <link href='http://fonts.googleapis.com/css?family=Metrophobic' rel='stylesheet' type='text/css'> <!--header font-->
+    <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'> <!-- body font -->
   <title>Pushbc</title>
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-  <%= stylesheet_link_tag "theme" %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %> 
+  <%= stylesheet_link_tag "bootstrap.min" %>
   <%= stylesheet_link_tag "bootstrap-theme.min" %>
+  <%= stylesheet_link_tag "theme" %>
   <%= stylesheet_link_tag "social-buttons" %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -21,10 +23,10 @@
     
       <%= render 'layouts/navigation' %>
     
-    <div class = "container theme-showcase">
+    <div class = "container main-content">
     
       <%= yield %>
-    </div>
+    </div> <!--end of container main div -->
     
     <%= render 'layouts/footer' %>
 
