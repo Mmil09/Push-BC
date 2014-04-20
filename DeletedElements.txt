@@ -1,0 +1,41 @@
+<%= form_tag '/login' do %>
+                  <%= render('shared/form_text_field', form: nil, label: :username, name: :username, type: "text") %>
+                  <%= render('shared/form_text_field', form: nil, label: :password, name: :password, type: "password") %>
+                   <%= submit_tag 'Login', class: "btn btn-default" %>
+                  <% end %>
+
+
+
+
+                  <!--<%= display_button_logged_out("Sign In", login_path) %>
+             <%= display_button_logged_out("Register", new_user_path) %>
+            <%= display_button_logged_in("Log Out", logout_path) %> -->
+
+
+<div class = "row">
+  <div class = "col-md-3 col-md-offset-3">
+    <%= display_text_field_label(form, label) %>
+  </div>
+  <div class = "col-md-6">
+    <%= display_text_field_element(form, name, type) %>
+  </div>
+</div>
+</br>
+</br>
+
+
+
+<h2>Login</h2>
+</br>
+<%= form_tag '/login' do %>
+
+<%= render('shared/form_text_field', form: nil, label: :username, name: :username, type: "text") %>
+<%= render('shared/form_text_field', form: nil, label: :password, name: :password, type: "password") %>
+  
+ 
+ <div class = "row">
+  <div class = "col-lg-1 col-lg-offset-3">
+    <%= submit_tag 'Login', class: "btn btn-default" %>
+  </div>
+</div>
+<% end %>

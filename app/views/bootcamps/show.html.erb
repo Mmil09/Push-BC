@@ -1,15 +1,14 @@
 <%= javascript_include_tag "review_form" %>
 
-<div class="affixed-nav" data-spy="affix" data-offset-top="300" data-offset-bottom="200">
-		<ul class="affixed-list">
-			<li><a href="#desc-header">Description</a></li>
-			<li><a href="#basic-info-header">Info</a></li>
-			<li><a href="#reviews-header">Reviews</a></li>
-			<li><a href="#top">Top</a></li>
-		</ul>
-</div>
+
 
 <h1><%= @bootcamp.name %></h1>
+
+<hr class="hr-body">
+
+<%= render('affix') %>
+
+<hr class="hr-body">
 
 <h2 id="desc-header">Description/Summary</h2>
 
