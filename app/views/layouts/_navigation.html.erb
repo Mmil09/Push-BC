@@ -8,7 +8,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><%= image_tag("pushBC1.jpg", class: "nav-logo") %></a>
+          <%= link_to(image_tag("pushBC1.jpg", class: "nav-logo"), root_path, html_options = { class: "navbar-brand"}) %>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -25,32 +25,9 @@
             <%= navbar_link("Bootcamps", bootcamps_path) %>
            
           </ul>
-          <ul class="nav navbar-nav" id="sign-in">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login</a>
-                <div class="dropdown-menu dropdown-login animated fadeInUp">
-                  <%= form_tag '/login' do %>
-                  <%= render('shared/form_text_field', form: nil, label: :username, name: :username, type: "text") %>
-                  <br/>
-                  <%= render('shared/form_text_field', form: nil, label: :password, name: :password, type: "password") %>
-                  <br/>
-                   <%= submit_tag 'Login', class: "btn btn-primary pull-right" %>
-                  <% end %>
-              </div>
-            </li>
 
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account</a>
-                <div class="dropdown-menu dropdown-profile animated fadeInUp">
-                 <h4>username</h4>
-                 <br>
-                 <div class="btn-group">
-                    <button class="btn btn-primary">View Profile</button>
-                    <button class="btn btn-primary">Logout</button>
-                 </div>
-              </div>
-            </li>        
-          </ul>
+         <%= render('layouts/login_form/login_form') %>
+
         </div><!--/.nav-collapse -->
       </div>
     </div><!-- end div class="navbar" -->

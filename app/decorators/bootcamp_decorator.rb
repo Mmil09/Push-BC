@@ -19,7 +19,7 @@ class BootcampDecorator < Draper::Decorator
   end
 
   def display_reply_form?(review)
-    h.render('show_reply_form', review: review) if bc_admin_can_reply?(review.id)
+    h.render('show_reply_form', review: review) if h.logged_in? && bc_admin_can_reply?(review.id)
   end
 
   private

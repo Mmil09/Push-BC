@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :bootcamps, through: :user_bootcamps
   has_many :reviews
   has_many :replies
-  scope :case_insensitive_find, lambda { |attribute, value| where("lower(#{attribute}) = ?", value.downcase).first }
+  scope :case_insensitive_find, ->(username) { where("lower(username) = ?", username.downcase).first }
 
   def is_bc_admin?(bootcamp_id)
     self.bootcamps.exists?(bootcamp_id) ? true : false

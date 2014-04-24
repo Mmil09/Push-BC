@@ -51,6 +51,15 @@ describe SessionsController do
 
     end
 
+    context "it is not case sensitive" do 
+      let(:bob) { Fabricate(:user, username: "Joe") } 
+      before{ post :create, username: "joe", password: bob.password }
+      
+      it "creates a new user session" do 
+        expect(session[:user]).to be_present
+      end
+    end
+
     context "user has incorrect username" do 
       let(:bob) { Fabricate(:user) }
       before { post :create, username: bob.username, password: "sometypo" } 

@@ -4,8 +4,11 @@ class BootcampsController < ApplicationController
   before_action :require_log_in, except: [:show, :index]
   before_action only: [:edit, :update] { require_bc_admin(@bootcamp) } 
   before_action :require_admin, except: [:edit, :show, :update, :index]
-
+  add_breadcrumb "bootcamps", :bootcamps_path
+  
+  
   def index
+    
     @bootcamp = Bootcamp.all
   end
   
@@ -24,6 +27,7 @@ class BootcampsController < ApplicationController
   end
 
   def show
+    add_breadcrumb @bootcamp.name, bootcamp_path(@bootcamp)
     respond_with(@bootcamp)
   end
 

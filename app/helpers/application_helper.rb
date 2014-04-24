@@ -17,7 +17,15 @@ module ApplicationHelper
   end
 
   def display_button_logged_out(text, path)
-    menu_button(text, path) if !logged_in?
+    menu_button(text, path) if logged_in?
+  end
+
+  def display_login
+    render('/layouts/login_form/login_menu') if !logged_in?
+  end
+
+  def display_account
+    render('/layouts/login_form/account_menu') if logged_in?
   end
 
   def model_backed?(form)
