@@ -7,7 +7,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.case_insensitive_find(params[:username])
+    @user = User.case_insensitive_find(params[:username]).take
+    binding.pry
     if @user && @user.authenticate(params[:password])
       session[:user] = @user.id
       flash[:success] = "You have successfully logged in!"

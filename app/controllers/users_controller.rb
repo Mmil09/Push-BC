@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   before_action only: [:edit, :update] { require_same_user(@user.id) }
   
   def new
+    add_breadcrumb "Sign Up", new_user_path
     @user = User.new
   end
 
@@ -15,7 +16,7 @@ class UsersController < ApplicationController
       flash[:success] = "You are now registered and logged in."
       redirect_to(root_path)
     else
-      flash[:error] = "There was an error.  Please check your input"
+      flash[:error] = "There were some errors."
       render(:new)
     end
   end

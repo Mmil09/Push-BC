@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
   before_action :require_log_in, :require_standard_user
 
   def create
-    binding.pry
+
     @review = Review.new(review_params)
     if @review.save
       flash[:success] = "Your review has been saved."
