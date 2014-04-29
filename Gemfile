@@ -20,8 +20,11 @@ gem 'kaminari'
 gem 'figaro'
 gem 'breadcrumbs_on_rails'
 gem 'squeel'
-gem 'devise'
 
+
+group :development do 
+  gem 'letter_opener'
+end
 
 group :test, :development do
 	gem 'pry'

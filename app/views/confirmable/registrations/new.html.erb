@@ -1,0 +1,24 @@
+<h2>New User Sign Up</h2>
+
+<%= form_for(@user, url: user_registration_path(@user)) do |f| %>
+  <%= devise_error_messages! %>
+
+ </br>
+
+
+<%= render('shared/form_text_field', form: f, label: :username, name: :username, type: "text") %>
+<%= render('shared/form_text_field', form: f, label: :email, name: :email, type: "text") %>
+<%= render('shared/form_text_field', form: f, label: :password, name: :password, type: "password") %>
+<%= render('shared/form_text_field', form: f, label: "Confirm Password", name: :password_confirmation, type: "password") %>
+
+</br>
+
+<div class = "row">
+  <div class = "col-lg-1">
+    <%= f.submit 'Submit', class: "btn btn-default" %>
+  </div>
+</div>
+
+<% end %>
+
+<%= render "confirmable/shared/links" %>

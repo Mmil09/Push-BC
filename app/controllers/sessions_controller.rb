@@ -8,13 +8,12 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.case_insensitive_find(params[:username]).take
-    binding.pry
-    if @user && @user.authenticate(params[:password])
+    if @user && @user.authenticate(params[:password]) && @user.confirmed?
       session[:user] = @user.id
       flash[:success] = "You have successfully logged in!"
       redirect_to(root_path)
     else
-      flash[:error] = "Could not log in.  Please check username and password."
+      flash[:error] = "Could not log in.  Please check username and password.  If you just signed up please check your email and confirm your account"
       render(:new)
     end
   end

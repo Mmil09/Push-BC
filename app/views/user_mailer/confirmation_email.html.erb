@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to PushBC!</h1>
+    <p>
+      Please click the link below to confirm your account:
+    </p>
+    <p>
+      <%= link_to('Account Confirmation', confirmation_url(token: @user.confirmation_token)) %>
+    </p>
+    <p>Thank you for joining the PushBC community!</p>
+  </body>
+</html>

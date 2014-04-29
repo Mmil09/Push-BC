@@ -7,13 +7,14 @@ class UsersController < ApplicationController
   def new
     add_breadcrumb "Sign Up", new_user_path
     @user = User.new
+    render(:new)
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:user] = @user.id
-      flash[:success] = "You are now registered and logged in."
+      UserMailer.confirmation_email(@user).deliver
+      flash[:success] = "A confirmation email has been sent.  You must confirm your account before signing in."
       redirect_to(root_path)
     else
       flash[:error] = "There were some errors."
