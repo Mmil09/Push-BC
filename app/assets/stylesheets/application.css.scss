@@ -3,6 +3,28 @@
 //= depend_on_asset "bootstrap/glyphicons-halflings-regular.ttf"
 //= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
 
+
+
+
+  @font-face {
+      font-family: 'FontAwesome';
+      src: font-url('assets/fonts/fontawesome-webfont.eot'),
+      font-url('fontawesome-webfont.eot'),
+      font-url('FontAwesome.otf'),
+      font-url('fontawesome-webfont.svg'),
+      font-url('fontawesome-webfont.ttf'),
+      font-url('fontawesome-webfont.woff'),
+      font-url('glyphicons-halflings-regular.eot'),
+      font-url('glyphicons-halflings-regular.svg'),
+      font-url('glyphicons-halflings-regular.ttf'),
+      font-url('glyphicons-halflings-regular.woff');
+      font-weight: normal;
+      font-style: normal;
+
+
+      
+}
+
 @import "bootstrap";
 @import "font-awesome.min";
 @import "theme";
@@ -10,4 +32,3 @@
 @import "animate.min";
 @import "jquery-ui-1.10.4.min";
 @import "social-buttons";
-

@@ -80,6 +80,7 @@ Pushbc::Application.configure do
 
   # Compress JavaScripts and CSS
 config.assets.compress = true
+config.assets.compile = true
 
 config.action_mailer.default_url_options = { :host => 'www.pushbc.com' }
 
