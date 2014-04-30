@@ -14,7 +14,6 @@ gem 'active_model_serializers'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem "word-count-validator", "~> 1.0.0"
 gem "font-awesome-rails"
-gem 'mercury-rails'
 gem 'draper', '~> 1.3'
 gem 'kaminari'
 gem 'figaro'
