@@ -81,7 +81,7 @@ Pushbc::Application.configure do
   # Compress JavaScripts and CSS
 config.assets.compress = true
 
-config.action_mailer.default_url_options = { :host => 'polar-springs-3927.heroku.com' }
+config.action_mailer.default_url_options = { :host => 'www.pushbc.com' }
 
 ActionMailer::Base.smtp_settings = {
   :port           => ENV['MAILGUN_SMTP_PORT'],
