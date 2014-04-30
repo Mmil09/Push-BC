@@ -20,6 +20,7 @@ gem 'kaminari'
 gem 'figaro'
 gem 'breadcrumbs_on_rails'
 gem 'squeel'
+gem 'sidekiq'
 
 
 group :development do 

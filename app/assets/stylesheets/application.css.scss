@@ -1,2 +1,13 @@
-/* @import "bootstrap"; */
-@import "font-awesome"
+//= depend_on_asset "bootstrap/glyphicons-halflings-regular.eot"
+//= depend_on_asset "bootstrap/glyphicons-halflings-regular.woff"
+//= depend_on_asset "bootstrap/glyphicons-halflings-regular.ttf"
+//= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
+
+@import "bootstrap";
+@import "font-awesome";
+@import "theme";
+@import "bootstrap-theme.min"
+@import "animate.min"
+@import "jquery-ui-1.10.4.min"
+@import "social-buttons"
+

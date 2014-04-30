@@ -35,8 +35,8 @@ config.action_mailer.smtp_settings = {
   address:              'smtp.gmail.com',
   port:                 587,
   domain:               'pushbc.com',
-  user_name:            'daniel.miller5383@gmail.com',
-  password:             'torkor10',
+  user_name:            ENV['GMAIL_USERNAME'],
+  password:             ENV['GMAIL_PASSWORD'],
   authentication:       'plain',
   enable_starttls_auto: true  }
 end
