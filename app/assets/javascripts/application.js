@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-
+//= review_form
 //= require bootstrap.min
 //= require jquery.dataTables.min
 //= require jquery.tablesorter.min
@@ -22,4 +22,4 @@
 //= require script
 //= require_tree 
 
-@include review_form;
+
