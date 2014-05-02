@@ -19,6 +19,6 @@
 //= require jquery.tablesorter.min
 //= require jquery.tablesorter.pager
 //= require jquery-ui-1.10.4.min
-//= require script.js
+//= require script
 //= require_tree 
 

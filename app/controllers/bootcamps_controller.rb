@@ -28,6 +28,7 @@ class BootcampsController < ApplicationController
 
   def show
     add_breadcrumb @bootcamp.name, bootcamp_path(@bootcamp)
+    @reviews = @bootcamp.reviews.order("created_at DESC").page(params[:page]).per(2)
     respond_with(@bootcamp)
   end
 

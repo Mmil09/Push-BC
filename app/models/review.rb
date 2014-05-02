@@ -4,6 +4,7 @@ class Review < ActiveRecord::Base
   INSTRUCTION_WORDS = 150
   OVERALL_WORDS = 300
   
+
   validates :rating, :background, :instruction, :overall, presence: true
   validates_inclusion_of :rating, in: 1..5
   validates_length_of :overall, minimum: 300

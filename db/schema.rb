@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140427144418) do
+ActiveRecord::Schema.define(version: 20140501133516) do
 
   create_table "bootcamp_materials", force: true do |t|
     t.integer "bootcamp_id"
