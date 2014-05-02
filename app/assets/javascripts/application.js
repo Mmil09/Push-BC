@@ -11,9 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
-//= require jquery.turbolinks
 //= review_form
 //= require bootstrap.min
 //= require jquery.dataTables.min
