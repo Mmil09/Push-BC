@@ -23,41 +23,24 @@
     <!-- ****************Rating****************** -->
         <div class="row">
           <div class="col-md-2"><%= f.label :rating %></div>
-          <div class="col-md-2"><%= f.select :rating, options_for_select(1..5), {}, class: "form-control" %></div>  
+          <div class="col-md-2"><%= f.select :rating, options_for_select(1..5), {}, class: "form-control" %> </div>  
+         
+        </div>
+
+        <div class = "row">
+          <div class = "col-md-5"><em>(Rating of 5 being the highest)</5></div>
         </div>
         
         <br/>
 
-        <!-- ****************Background****************** -->
+    <!-- *************Overall****************** -->
         <div class="row">
-          <div class="col-md-2"><%= f.label "Your Background" %></div>
-          <div class="col-md-10"> <%= f.text_area :background, class: "form-control", id: "background" %></div>  
-        </div>
-        <div class="row wordcount">
-           <div class = "col-md-4 col-md-offset-2" id = "background-wordcount">Word Count:</div>
-           <div class = "col-md-4" id = "background-wordcount">Minimum words: 150</div>
-           <div class = "col-md-2" id = "background-error"></div>
-        </div>
-
-        <!-- ****************Background****************** -->
-        <div class="row">
-          <div class="col-md-2"><%= f.label "Quality of instruction" %></div>
-          <div class="col-md-10"><%= f.text_area :instruction, class: "form-control", id: "instruction" %></div>  
-        </div>
-        <div class="row wordcount">
-           <div class = "col-lg-2 col-lg-offset-4" id = "instruction-wordcount">Word Count:</div>
-           <div class = "col-md-4" id = "instruction-wordcount">Minimum words: 150</div>
-           <div class = "col-md-2" id = "instruction-error"></div>
-        </div>
-
-        <!-- ****************Overall****************** -->
-        <div class="row">
-          <div class="col-md-2"> <%= f.label "Overall" %></div>
+          <div class="col-md-2"> <%= f.label "Review" %></div>
           <div class="col-md-10"> <%= f.text_area :overall, class: "form-control", id: "overall" %></div>  
         </div>
         <div class="row wordcount">
            <div class = "col-lg-2 col-lg-offset-4" id = "overall-wordcount">Word Count:</div>
-           <div class = "col-md-4" id = "overall-wordcount">Minimum words: 300</div>
+           <div class = "col-md-4" id = "overall-wordcount">Minimum words: 500</div>
            <div class = "col-md-2" id = "overall-error"></div>
         </div>
 

@@ -1,8 +1,7 @@
 $(document).ready(function() {
 
-  var background_required_words = 150;
-  var instruction_required_words = 150;
-  var overall_required_words = 300;
+
+  var overall_required_words = 500;
 
   var wordCount = function(text) {
     text = text.replace(/(^\s*)|(\s*$)/gi,"");
@@ -58,19 +57,19 @@ $(document).ready(function() {
     }
   }
   
-  wordCounter("#background", "#background-wordcount", background_required_words);
-  wordCounter("#instruction", "#instruction-wordcount", instruction_required_words);
+  
   wordCounter("#overall", "#overall-wordcount", overall_required_words);
 
 
   $("#review_form").submit(
     function(event) {
       errors = 0;
-      errors = errors + displayErrors("#background", "#background-error", background_required_words);
-      errors = errors + displayErrors("#instruction", "#instruction-error", instruction_required_words);
+      
       errors = errors + displayErrors("#overall", "#overall-error", overall_required_words);
       
-      if (errors < 3) {
+
+      //errors should equal the amount of fields(not including rating)
+      if (errors < 1) {
         event.preventDefault();
       }
     }
