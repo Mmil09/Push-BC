@@ -1,18 +1,19 @@
 class Review < ActiveRecord::Base
 
 
-  OVERALL_WORDS = 500
-  
+  BACKGROUND_WORDS = 50
+  INSTRUCTION_WORDS = 50
+  OVERALL_WORDS = 200
 
   validates :rating, :overall, presence: true
   validates_inclusion_of :rating, in: 1..5
-  validates_length_of :overall, minimum: OVERALL_WORDS
+  #validates_length_of :overall, minimum: OVERALL_WORDS
   belongs_to :user
   belongs_to :bootcamp
   has_many :replies
   scope :review_exists?, ->(user_id, bootcamp_id) { where(user_id: user_id, bootcamp_id: bootcamp_id).count } 
   validate :reviewed_by_user?, before: :save
-  validate :overall_enough_words?, before: :save
+  validate :background_enough_words?, :instruction_enough_words?, :overall_enough_words?, before: :save
 
 
   def reviewed_by_user?
@@ -21,6 +22,14 @@ class Review < ActiveRecord::Base
 
   def username
     self.user.username
+  end
+
+  def background_enough_words?
+    enough_words?("background", BACKGROUND_WORDS) 
+  end
+
+  def instruction_enough_words?
+    enough_words?("instruction", INSTRUCTION_WORDS)
   end
 
   def overall_enough_words?

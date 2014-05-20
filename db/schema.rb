@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140504211334) do
+ActiveRecord::Schema.define(version: 20140519214104) do
 
   create_table "bootcamp_materials", force: true do |t|
     t.integer "bootcamp_id"
@@ -93,6 +93,8 @@ ActiveRecord::Schema.define(version: 20140504211334) do
     t.integer  "user_id"
     t.integer  "bootcamp_id"
     t.boolean  "may_we_contact"
+    t.text     "instruction"
+    t.text     "background"
   end
 
   create_table "user_bootcamps", force: true do |t|
