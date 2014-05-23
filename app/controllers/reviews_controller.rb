@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:rating, :overall).merge(bootcamp_id: bootcamp.id, user_id: current_user)
+    params.require(:review).permit(:rating, :overall, :instruction, :background).merge(bootcamp_id: bootcamp.id, user_id: current_user)
   end
 
 end
