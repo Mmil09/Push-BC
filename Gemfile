@@ -7,6 +7,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'friendly_id', '~> 5.0.0'
 gem 'bcrypt-ruby', '~> 3.1.2'
@@ -14,15 +15,17 @@ gem 'active_model_serializers'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem "word-count-validator", "~> 1.0.0"
 gem "font-awesome-rails"
-gem 'mercury-rails'
-
-
-
-
 gem 'draper', '~> 1.3'
 gem 'kaminari'
 gem 'figaro'
+gem 'breadcrumbs_on_rails'
+gem 'squeel'
+gem 'sidekiq'
 
+
+group :development do 
+  gem 'letter_opener'
+end
 
 group :test, :development do
 	gem 'pry'

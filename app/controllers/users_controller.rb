@@ -5,17 +5,19 @@ class UsersController < ApplicationController
   before_action only: [:edit, :update] { require_same_user(@user.id) }
   
   def new
+    add_breadcrumb "Sign Up", new_user_path
     @user = User.new
+    render(:new)
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:user] = @user.id
-      flash[:success] = "You are now registered and logged in."
+      UserMailer.confirmation_email(@user).deliver
+      flash[:success] = "A confirmation email has been sent.  You must confirm your account before signing in."
       redirect_to(root_path)
     else
-      flash[:error] = "There was an error.  Please check your input"
+      flash[:error] = "There were some errors."
       render(:new)
     end
   end

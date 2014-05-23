@@ -1,12 +1,13 @@
 class Review < ActiveRecord::Base
 
-  BACKGROUND_WORDS = 150
-  INSTRUCTION_WORDS = 150
-  OVERALL_WORDS = 300
-  
-  validates :rating, :background, :instruction, :overall, presence: true
+
+  BACKGROUND_WORDS = 50
+  INSTRUCTION_WORDS = 50
+  OVERALL_WORDS = 200
+
+  validates :rating, :overall, presence: true
   validates_inclusion_of :rating, in: 1..5
-  validates_length_of :overall, minimum: 300
+  #validates_length_of :overall, minimum: OVERALL_WORDS
   belongs_to :user
   belongs_to :bootcamp
   has_many :replies

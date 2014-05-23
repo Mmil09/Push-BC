@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
-  var background_required_words = 150;
-  var instruction_required_words = 150;
-  var overall_required_words = 300;
+  var background_required_words = 50;
+  var instruction_required_words = 50;
+  var overall_required_words = 200;
 
   var wordCount = function(text) {
     text = text.replace(/(^\s*)|(\s*$)/gi,"");
